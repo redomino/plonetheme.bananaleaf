@@ -8,17 +8,25 @@
     <rules css:if-content="#visual-portal-wrapper">
         <theme href="index.html" />
     </rules>
+    <notheme if-path="presentation_view"/>
+    <notheme if-path="source_editor.htm"/>
+    <notheme if-path="ploneimage.htm"/>
+    <notheme if-path="anchor.htm"/>
+    <notheme if-path="table.htm"/>
+    <notheme if-path="attributes.htm"/>
+    <drop theme='//*[@id="logo"]/h2' />
     <replace content="/html/head/title" theme="/html/head/title" />
     <replace content="/html/head/base" theme="/html/head/base" />
     <replace content="/html/head/meta" theme="/html/head/meta" />
-    <before content='/html/head' theme='/html/head' />
+    <prepend content='/html/head' theme='/html/head' />
 
-    <!-- Pull in Plone CSS and JS
-    <prepend content="/html/head/link | /html/head/style " theme="/html/head"/>
-    <after content="/html/head/script" theme="/html/head"/>-->
-
-    <!-- Body class -->
-    <copy attributes="class" css:theme="body" css:content="body"/>
+    <copy attributes="href title" css:content='#portal-logo' css:theme='#logo a' />
+    <replace css:theme-children="#logo h1 a">
+        <xsl:for-each css:select="a#portal-logo">
+          <xsl:value-of select="@title" />
+        </xsl:for-each>
+    </replace>
+    <copy attributes="id class dir" css:theme="body" css:content="body"/>
     
     <copy content='//*[@id="portal-globalnav"]' theme='//*[@id="menu"]' />
     <drop attributes="id" css:content="#portal-globalnav"/>
@@ -27,8 +35,8 @@
     <prepend content='//*[@id="portal-searchbox"]' theme='//*[@id="logo"]' />
 
     <!-- Pull in content -->
-    <copy content='//*[@id="portal-column-content"]' theme='//*[@id="wrapper-content"]' />
-    <drop attributes="class" css:content="#portal-column-content"/>
+    <replace content='//*[@id="portal-column-content"]' theme='//*[@id="wrapper-content"]' />
+    <!--<drop attributes="class" css:content="#portal-column-content"/--> 
 <!--
     <drop css:theme="#content div"/>
     <before css:theme-children="#page" css:content="#viewlet-above-content"/>
@@ -38,10 +46,10 @@
 
 
     <!-- Pull in columns -->
-    <copy content='//*[@id="portal-column-one"]' theme='//*[@id="sidebar1"]' />
-	<drop attributes="class" css:content="#portal-column-one"/>
-	<copy content='//*[@id="portal-column-two"]' theme='//*[@id="sidebar2"]' />
-	<drop attributes="class" css:content="#portal-column-two"/>
+    <replace content='//*[@id="portal-column-one"]' theme='//*[@id="sidebar1"]' />
+	<!--<drop attributes="class" css:content="#portal-column-one"/>-->
+	<replace content='//*[@id="portal-column-two"]' theme='//*[@id="sidebar2"]' />
+	<!--<drop attributes="class" css:content="#portal-column-two"/>-->
 
     <copy content='//*[@id="portal-footer"]' theme='//*[@id="footer"]' />
 	<append content='//*[@id="portal-colophon"]' theme='//*[@id="footer"]' />

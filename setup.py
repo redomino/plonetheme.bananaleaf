@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.1'
+version = '1.2'
 
 setup(
         name='plonetheme.bananaleaf',
@@ -11,8 +11,8 @@ setup(
                          open(os.path.join("docs", "HISTORY.txt")).read(),
         version='1.1',
         author='Giacomo Spettoli',
-        author_email='giacomo.spettoli@gmail.com',
-        url='http://svn.plone.org/svn/collective/plonetheme.bananaleaf',
+        author_email='giacomo.spettoli@redomino.com',
+        url='https://github.com/redomino/plonetheme.bananaleaf',
         packages=find_packages(),
         include_package_data=True,
         namespace_packages=[
