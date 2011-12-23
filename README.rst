@@ -5,7 +5,7 @@ The ``plonetheme.bananaleaf`` package uses the *theming & packaging* features
 available in `plone.app.theming`_ to make the theme `bananaleaf`_ easily
 available in `Plone 4.1`_.
 
-.. image:: https://github.com/redomino/plonetheme.bananaleaf/blob/master/screenshot.png
+.. image:: https://github.com/redomino/plonetheme.bananaleaf/raw/master/screenshot.png
 
 .. _`bananaleaf`: http://www.freecsstemplates.org/preview/bananaleaf/
 .. _`plone.app.theming`: http://pypi.python.org/pypi/plone.app.theming
